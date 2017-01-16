@@ -1,0 +1,198 @@
+/* line 3, style.scss */
+body {
+    font: 1.5em "Cardo", Georgia, Times, serif;
+    background-color: #181818 !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+}
+
+/* line 15, style.scss */
+h1 {
+    margin-top: 0px;
+}
+
+/* line 18, style.scss */
+.navbar {
+/*    padding-top: 1%;*/
+/*    padding-bottom: 1%;*/
+    background-color: #282828;
+    background-color: rgba(33, 33, 33, 0.7);
+}
+/* line 21, style.scss */
+.navbar .navbar-header a {
+    font-size: 1.5em;
+    color: white;
+}
+/* line 25, style.scss */
+.navbar .navbar-header a:hover {
+    color: #bdbdbd;
+}
+/* line 28, style.scss */
+.navbar .navbar-header a:focus {
+    color: #616161;
+}
+
+/* line 33, style.scss */
+.navbar-default {
+    font-size: 1.5em;
+    border: none !important;
+}
+/* line 37, style.scss */
+.navbar-default .navbar-nav li a {
+    color: white;
+}
+/* line 40, style.scss */
+.navbar-default .navbar-nav li a:hover {
+    color: #bdbdbd;
+}
+/* line 43, style.scss */
+.navbar-default .navbar-nav li a:focus {
+    color: #616161;
+}
+
+/* line 49, style.scss */
+/*
+.opacityBackground {
+background-color: #1a1a1a;
+background-color: rgba(33, 33, 33, 0.8);
+border: 1px solid #616161;
+}
+*/
+#newtab-search-container {
+	display: -moz-box;
+	position: relative;
+	-moz-box-pack: center;
+	margin: 0 auto;
+}
+#newtab-search-form {
+	display: -moz-box;
+	position: relative;
+    width: 90%;
+	height: 24px;
+	-moz-box-flex: 1;
+    font-size: 12px;
+    margin: 1% 5% auto;
+}
+#newtab-search-icon {
+	border: 0px transparent;
+	padding: 14px;
+	margin: 0;
+	width: 14px;
+	height: 14px;
+	background: url("chrome://browser/skin/search-indicator-magnifying-glass.svg") center center no-repeat;
+    background-size: 20px;
+	position: absolute;
+}
+#newtab-search-text {
+	-moz-box-flex: 1;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-inline-start: 24px;
+	padding-inline-end: 8px;
+	border-radius: 40px;
+}
+.selected {
+    background-color:white;
+    color:black;
+    font-weight:bold;
+}
+/* line 53, style.scss */
+.form {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    background-color: transparent;
+    padding: 1% 0px;
+}
+.form-control{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 40px;
+    font-family: 12px;
+}
+/* line 58, style.scss */
+.form button {
+    background-color: #616161;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* line 67, style.scss */
+input {
+    color: black;
+}
+
+/* line 70, style.scss */
+.table {
+    background-color: #1a1a1a;
+    background-color: rgba(33, 33, 33, 0.8);
+}
+/* line 72, style.scss */
+.table tr:hover {
+    background-color: #424242;
+}
+
+/* line 78, style.scss */
+.repeat-item.ng-enter,
+.repeat-item.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+}
+
+/* line 84, style.scss */
+.repeat-item.ng-enter,
+.repeat-item.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+/* line 88, style.scss */
+.repeat-item.ng-leave,
+.repeat-item.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+/* line 91, style.scss */
+.my-slide-container {
+    position: relative;
+}
+
+/* line 94, style.scss */
+.my-slide-animation.ng-enter, .my-slide-animation.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 600px;
+}
+
+/* line 105, style.scss */
+.my-slide-animation.ng-enter {
+    z-index: 100;
+    top: 600px;
+    opacity: 0;
+}
+
+/* line 110, style.scss */
+.my-slide-animation.ng-enter.ng-enter-active {
+    top: 0;
+    opacity: 0.5;
+}
+
+/* line 115, style.scss */
+.my-slide-animation.ng-leave {
+    z-index: 101;
+    top: 0;
+    opacity: 0.2;
+}
+
+/* line 120, style.scss */
+.my-slide-animation.ng-leave.ng-leave-active {
+    top: -600px;
+    opacity: 0;
+}
