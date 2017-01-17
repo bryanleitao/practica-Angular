@@ -1,0 +1,27 @@
+<div bg-img="{{result.albums.items[0].images[0].url}}" style="width: 100%; height: auto;">
+    <div class="row">
+
+        <div class="col-md-3">
+            <img ng-src="{{album.images[0].url}}" class="img-rounded img-responsive" alt="">
+        </div>
+        <div class="col-md-9">
+            <div class="containAlbum text-left">
+                <h2>{{album.artists[0].name}}</h2>
+                <h3>{{album.name}}</h3>
+                <a href="" class="btn btn-default pull-left">Listen on Spotify</a>
+                <a ng-click="getComments(album.id)" href="/comment/album.id" class="btn btn-default pull-right">View Comments</a>
+            </div>
+        </div>
+
+        <div class="col-md-12"style="background-color: #181818 !important; height: 20px;"></div>                 
+       
+        <div ng-if="comment" class="col-md-12"style="background-color: #181818 !important; height: 20px;">
+        <ul>
+            <li ng-repeat="comment in comments">
+                <h3>email: {{comment.email}}</h3>
+                <p>Comentario: "{{comment.text}}"</p>
+            </li>
+        </ul>
+        </div>                 
+    </div>
+</div>
