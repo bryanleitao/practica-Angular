@@ -2,12 +2,18 @@
     <nav class="navbar navbar-default">
         <div id="newtab-search-container container">
             <div id="newtab-search-form">
-                <div id="newtab-search-icon"></div>
-                <input id="newtab-search-text" placeholder="Search" type="text"
-                ng-model="search_artist"
-                ng-change="searchArtist()"
-                ng-model-options="{debounce: 500}"/>
+                <div action="" class="docs-search">
+                    <span class="glyphicon glyphicon-search search-icon" aria-hidden="true"></span>
+                    <input id="" placeholder="Search" type="text" class="search-query"
+                           ng-model="search_artist"
+                           ng-change="searchArtist()"
+                           ng-model-options="{debounce: 500}"/>
+                    <button class="pull-right" style="border: 0px; background: #fff; margin-right: 10px; outline: 0px;" type="submit" ng-click="search_artist = ''; searchArtist()"> <!--pasar style al css-->
+                        <span class="glyphicon glyphicon-remove search-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 </header>
+

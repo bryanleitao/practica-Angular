@@ -5,7 +5,7 @@ License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
-p, blockquote, pre,
+ blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -49,14 +49,14 @@ table {
 }
 /* line 3, style.scss */
 body {
-    font: 1.5em "Cardo", Georgia, Times, serif;
+/*    font: 1.5em "Open Sans", Georgia, Times, serif;*/
+    font-family: "Open Sans";
     background-color: #181818 !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     color: white;
-    font-family: OpenSans;
 }
 
 /* line 15, style.scss */
@@ -163,9 +163,6 @@ border: 1px solid #616161;
     padding: 1% 0px;
 }
 .form-control{
-    padding-top: 1%;
-    padding-bottom: 1%;
-    border-radius: 40px;
     font-family:  12px;
 }
 /* line 58, style.scss */
@@ -258,7 +255,7 @@ input {
 
 .btn{
     color: #fff;
-    width: 160px;
+    padding: 5px 25px;
     height: 30px;
     border-radius: 40px;
     background-color: rgba(31, 31, 31, 0.7);
@@ -276,4 +273,22 @@ input {
 }
 .bg-dark2{
     background-color: #282828;
+}
+
+.docs-search {
+    margin: 10px 0;
+    padding: 4px 0 4px 20px;
+    background: white;
+    border-radius: 20px;
+    vertical-align: middle;
+    color: #555;
+}
+.docs-search > .search-query {
+    font-size: 14px;
+    border: 0;
+    width: 80%;
+    color: #555;
+}
+.docs-search > .search-query:focus {
+    outline: 0px;
 }

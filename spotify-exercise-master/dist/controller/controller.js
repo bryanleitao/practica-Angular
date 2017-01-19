@@ -2,11 +2,11 @@ var app = angular.module("spotifyzier");
 
 app.controller("spotifyzierCtrl",['$rootScope','$scope','$log','$http','spotifyService','headerFactory',function($rootScope,$scope,$log,$http,spotifyService,headerFactory){
 
-//    $scope.show = {};
-//    $scope.show.comments = false;
-//    $scope.show.buttonComments = false;
-//    $scope.show.boxComments = false;
-//    $scope.form = {};
+    //    $scope.show = {};
+    //    $scope.show.comments = false;
+    //    $scope.show.buttonComments = false;
+    //    $scope.show.boxComments = false;
+    //    $scope.form = {};
 
 
     resetScopes = ()=>{
@@ -42,6 +42,7 @@ app.controller("spotifyzierCtrl",['$rootScope','$scope','$log','$http','spotifyS
                 .then(function successCallback(response){
                 console.log("hola");
                 $scope.getComments(id);
+                $scope.form.alert = "";
                 $scope.form.email = "";
                 $scope.form.text = "";
                 /**/
@@ -50,6 +51,7 @@ app.controller("spotifyzierCtrl",['$rootScope','$scope','$log','$http','spotifyS
                 /*motras mensaje en caso de que no encuentre el artista*/
             })
         }else{
+            $scope.form.alert = "Ingrese todos los campos como corresponde";
             console.log("pone el mail y/o el texto");
         }
 
