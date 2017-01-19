@@ -1,38 +1,65 @@
 var app = angular.module("spotifyzier");
 
-app.controller("spotifyzierCtrl",['$scope','$log','$http','spotifyService',function($scope,$log,$http,spotifyService){
-    $scope.showComments = false;     
-    const comment = {
-        albumId: "2guirTSEqLizK7j9i1MTTZ",
-        email: "nahuel.veron@lateralview.net",
-        text: "test",
+app.controller("spotifyzierCtrl",['$rootScope','$scope','$log','$http','spotifyService','headerFactory',function($rootScope,$scope,$log,$http,spotifyService,headerFactory){
+
+//    $scope.show = {};
+//    $scope.show.comments = false;
+//    $scope.show.buttonComments = false;
+//    $scope.show.boxComments = false;
+//    $scope.form = {};
+
+
+    resetScopes = ()=>{
+        $scope.show = {};
+        $scope.show.comments = false;
+        $scope.show.buttonComments = false;
+        $scope.show.boxComments = false;
+        $scope.form = {};
     }
-    
-    //spotifyService.createComments("2guirTSEqLizK7j9i1MTTZ",comment);
-    
-    $scope.searchArtist = () => {
-        if($scope.search_artist !== ''){  
-            spotifyService.getArtist($scope.search_artist)
+
+    resetScopes();
+
+    $scope.$on("newAlbum", ()=>{
+        resetScopes();
+        $scope.result = headerFactory.getAlbums();
+    });
+
+    $scope.changeComments = (id) => {
+        $scope.show.comments = !$scope.show.comments;
+        $scope.show.albumId = id;
+        $scope.show.buttonComments = !$scope.show.buttonComments;
+        $scope.show.boxComments = false;
+    }
+
+    $scope.createComments = (id) => {
+        let comment = {};
+        comment.albumId = id;
+        comment.email = $scope.form.email;
+        comment.text = $scope.form.text;
+
+        if(comment.text && comment.email){
+            spotifyService.createComments(comment)
                 .then(function successCallback(response){
-                    console.log(response.data);
-                    var result = response.data; 
-                    $scope.result = result;
+                console.log("hola");
+                $scope.getComments(id);
+                $scope.form.email = "";
+                $scope.form.text = "";
                 /**/
-                }, function errorCallback(response){
-                    /*motras mensaje en caso de que no encuentre el artista*/
-                })
+            }, function errorCallback(response){
+                console.log("no");
+                /*motras mensaje en caso de que no encuentre el artista*/
+            })
         }else{
-            $scope.result = null;
+            console.log("pone el mail y/o el texto");
         }
+
     }
-    $scope.changeComments = () => {
-        $scope.showComments = !$scope.showComments
-    }
+
     $scope.getComments = (id) => {
         spotifyService.getComments(id).then((data) => {
             $scope.comments = data.data;
             console.log(data.data);
-        }); 
+        });
     }
 
 }]);

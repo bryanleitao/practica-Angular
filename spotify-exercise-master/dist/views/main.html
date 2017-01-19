@@ -1,77 +1,73 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="spotify">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport" />
-        <title>Spotify</title>
+<div ng-if="result" class="container">
+    <div bg-img="{{result.albums.items[0].images[0].url}}" class="bgImg">
 
-        <!-- Description of site -->
-        <meta name="description" content="Spotify!.">
+        <!--       -->
 
-        <!-- Stylesheets -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="../dist/css/style.css" />
-    </head>
+        <div class="row"
+             ng-repeat="album in result.albums.items"
+             ng-if="!show.comments || album.id === show.albumId">
 
-    <body ng-controller="spotifyzier">
-        <header>
-            <nav class="navbar navbar-default">
-
-                <div id="newtab-search-container container">
-                    <div id="newtab-search-form">
-                        <div id="newtab-search-icon"></div>
-                        <input id="newtab-search-text" placeholder="Search" type="text" ng-model="search_artist" ng-change="searchArtist()" ng-model-options="{debounce: 500}"/>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <!--        <section ui-view></section>-->
-        
-       
-        <div ng-if="result" class="container">
-            
-            <div bg-img="{{result.albums.items[0].images[0].url}}" style="width: 100%; height: auto;">
-                <div class="row" ng-repeat="album in result.albums.items" ng-if="!showComments || album.id === comments[0].albumId">
-                    <div class="col-md-3">
-                        <img ng-src="{{album.images[0].url}}" class="img-rounded img-responsive" alt="">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="containAlbum text-left">
-                            <h2>{{album.artists[0].name}}</h2>
-                            <h3>{{album.name}}</h3>
-                            <a href="" class="btn btn-default pull-left">Listen on Spotify</a>
-                            <a ng-click="getComments(album.id); changeComments()" href="" class="btn btn-default pull-right"><span ng-if="!showComments">View Comments</span>
-                            <span ng-if="showComments">Hide Comments</span></a>
-                        </div>
-                    </div>             
-                    <div class="col-md-12"style="background-color: #181818 !important; height: 20px;"></div>                 
-                </div>
-                <div ng-if="showComments" class="col-md-12"style="background-color: #181818 !important; height: 20px;">
-                        <ul>
-                            <li ng-repeat="comment in comments" class="row">
-                               <div class="col-md-2">
-                                   <img ng-src="{{comment.avatar}}" alt="">
-                               </div>
-                                <div class="col-md-10">
-                                    <h3>email: {{comment.email}}</h3>
-                                    <p>Comentario: "{{comment.text}}"</p>
-                                </div>
-                                
-                            </li>
-                        </ul>
-                    </div>    
+            <div class="col-md-3">
+                <img ng-src="{{album.images[0].url}}" class="img-responsive" alt="">
             </div>
+            <div class="col-md-9">
+                <div class="containAlbum text-left">
+                    <h2>{{album.artists[0].name}}</h2>
+                    <h3>{{album.name}}</h3>
+                    <a href="" class="btn btn-default pull-left">Listen on Spotify</a>
+                    <a ng-click="getComments(album.id); changeComments(album.id);" href="" class="btn btn-default pull-right">
+                        <span ng-if="!show.comments" >View Comments</span>
+                        <span ng-if="show.comments" >Hide Comments</span></a>
+                </div>
+            </div>
+            <div class="col-md-12"style="background-color: #181818 !important; height: 20px;"></div>
         </div>
-       
-        <div ng-if="!result" class="container">
-            <p>Ingrese un artista como la gente</p>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-        <script src="app.js"></script>
-        <script src="controller.js"></script>
-        <script src="bgImg-directive.js"></script>
-    </body>
 
-</html>
+        <!--        -->
+
+    </div>
+    <div  class="row" ng-init="showSpn = true" ng-if="show.buttonComments" style="margin: 10px 0;">
+        <div class="col-md-12">
+            Comments
+            <span class="pull-right">
+               Add comment
+                <button href="" class="btn btn-span" ng-click="show.boxComments = !show.boxComments; showSpn = !showSpn">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" ng-if="showSpn"></span>
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-if="!showSpn"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div  class="row bg-dark2" ng-if="show.boxComments">
+        <div class="col-md-12">
+            {{album}}
+            <input type="text" placeholder="e-mail" ng-model="form.email" class="form-control">
+            <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Write your comment..." ng-model="form.text"></textarea>
+            <button ng-click="createComments(show.albumId)" class="btn" value="ADD"></button>
+        </div>
+    </div>
+    <!--        -->
+    <div class="row">
+        <div ng-if="show.comments" class="col-md-12 bg-dark2">
+
+            <div ng-repeat="comment in comments" class="row">
+                <div class="col-md-2">
+                    <img ng-src="{{comment.avatar}}" alt="" class="img-circle">
+                </div>
+                <div class="col-md-10">
+                    <h5 style="color: #a0a097">{{comment.email}}</h5>
+                    <p>"{{comment.text}}"</p>
+                </div>
+
+                <div class="col-md-12"style="background-color: #181818 !important; height: 20px;"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!---->
+<div ng-if="!result" class="container">
+    <p>Ingrese un artista como la gente</p>
+    {{result}}
+</div>

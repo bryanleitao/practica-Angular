@@ -1,0 +1,13 @@
+<header>
+    <nav class="navbar navbar-default">
+        <div id="newtab-search-container container">
+            <div id="newtab-search-form">
+                <div id="newtab-search-icon"></div>
+                <input id="newtab-search-text" placeholder="Search" type="text"
+                ng-model="search_artist"
+                ng-change="searchArtist()"
+                ng-model-options="{debounce: 500}"/>
+            </div>
+        </div>
+    </nav>
+</header>

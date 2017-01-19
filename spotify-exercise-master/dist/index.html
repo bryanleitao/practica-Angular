@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport" />
-    <title>Spotify</title>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport" />
+        <title>Spotify</title>
 
-    <!-- Description of site -->
-    <meta name="description" content="Spotify!.">
+        <!-- Description of site -->
+        <meta name="description" content="Spotify!.">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
 
-  <body ng-app="spotifyzier">
-    <section ui-view></section>
+    <body ng-app="spotifyzier">
 
-    <script src="app.js"></script>
-    <script src="vendor/requirejs/require.js"></script>
-    <script src="controller/controller.js"></script>
-    <script src="directive/bgImg-directive.js"></script>
-    <script src="service/spotify_service.js"></script>
-  </body>
+        <div ui-view="header"></div>
+        <div ui-view="main"></div>
+
+        <script src="app.js"></script>
+        <script src="vendor/requirejs/require.js"></script>
+        <script src="controller/controller.js"></script>
+        <script src="controller/header-ctrl.js"></script>
+        <script src="factory/header_factory.js"></script>
+        <script src="directive/bgImg-directive.js"></script>
+        <script src="service/spotify_service.js"></script>
+
+    </body>
 </html>

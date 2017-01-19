@@ -1,11 +1,11 @@
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -13,39 +13,39 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 /* line 3, style.scss */
 body {
@@ -56,6 +56,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color: white;
+    font-family: OpenSans;
 }
 
 /* line 15, style.scss */
@@ -65,10 +66,9 @@ h1 {
 
 /* line 18, style.scss */
 .navbar {
-/*    padding-top: 1%;*/
-/*    padding-bottom: 1%;*/
+    /*    padding-top: 1%;*/
+    /*    padding-bottom: 1%;*/
     background-color: #282828;
-    background-color: rgba(33, 33, 33, 0.7);
 }
 /* line 21, style.scss */
 .navbar .navbar-header a {
@@ -111,15 +111,15 @@ border: 1px solid #616161;
 }
 */
 #newtab-search-container {
-	display: -moz-box;
-	position: relative;
-	-moz-box-pack: center;
-	margin: 0 auto;
+    display: -moz-box;
+    position: relative;
+    -moz-box-pack: center;
+    margin: 0 auto;
 }
 #newtab-search-form {
-	display: -moz-box;
+    display: -moz-box;
     /* position: relative; */
-    width: 90%;
+    width: 85%;
     /* height: 24px; */
     -moz-box-flex: 1;
     font-size: 12px;
@@ -130,17 +130,17 @@ border: 1px solid #616161;
 }
 
 #newtab-search-icon {
-	border: 0px transparent;
-	padding: 14px;
-	margin: 0;
-	width: 14px;
-	height: 14px;
-	background: url("chrome://browser/skin/search-indicator-magnifying-glass.svg") center center no-repeat;
+    border: 0px transparent;
+    padding: 14px;
+    margin: 0;
+    width: 14px;
+    height: 14px;
+    background: url("chrome://browser/skin/search-indicator-magnifying-glass.svg") center center no-repeat;
     background-size: 20px;
-	position: absolute;
+    position: absolute;
 }
 #newtab-search-text {
-	    -moz-box-flex: 1;
+    -moz-box-flex: 1;
     padding-top: 6px;
     padding-bottom: 6px;
     padding-inline-start: 24px;
@@ -166,7 +166,7 @@ border: 1px solid #616161;
     padding-top: 1%;
     padding-bottom: 1%;
     border-radius: 40px;
-    font-family: 12px;
+    font-family:  12px;
 }
 /* line 58, style.scss */
 .form button {
@@ -251,6 +251,29 @@ input {
     top: -600px;
     opacity: 0;
 }
+/* -- -- --*/
 
 /*album*/
+.container{width: 80% !important;}
 
+.btn{
+    color: #fff;
+    width: 160px;
+    height: 30px;
+    border-radius: 40px;
+    background-color: rgba(31, 31, 31, 0.7);
+    border: solid 1px #03bb4f;
+}
+.btn-span{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    color: green;
+}
+.bg-dark2{
+    background-color: #282828;
+}
