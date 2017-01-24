@@ -117,7 +117,7 @@ border: 1px solid #616161;
     margin: 0 auto;
 }
 #newtab-search-form {
-    display: -moz-box;
+/*    display: -moz-box;*/
     /* position: relative; */
     width: 85%;
     /* height: 24px; */
@@ -291,4 +291,8 @@ input {
 }
 .docs-search > .search-query:focus {
     outline: 0px;
+}
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+max-width: 60% !important;
 }

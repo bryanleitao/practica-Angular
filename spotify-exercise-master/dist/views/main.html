@@ -3,6 +3,7 @@
     <div bg-img="{{result.albums.items[0].images[0].url}}" class="bgImg" >
 
         <!--       -->
+        <!--             ng-repeat="album in result.albums.items"-->
 
         <div class="row"
 
@@ -28,6 +29,12 @@
         <!--        -->
 
     </div>
+    <pagination
+                ng-model="currentPage"
+                total-items="result.length"
+                max-size="maxSize"
+                boundary-links="true">
+    </pagination>
     <div  class="row" ng-init="showSpn = true" ng-if="show.buttonComments" style="margin: 10px 0;">
         <div class="col-md-12">
             Comments
@@ -75,3 +82,4 @@
     <p>Ingrese un artista como la gente</p>
     {{result}}
 </div>
+
